@@ -23,4 +23,4 @@ lastly, run the development server:
 npm run dev
 ```
 ## Ease your testing
-access pre-defined API calls by importing [apper-nodejs-project.postman_collection.json] collection to postman, which is included in this repository
+access pre-defined API calls by importing <mark>apper-nodejs-project.postman_collection.json</mark> collection to postman, which is included in this repository
