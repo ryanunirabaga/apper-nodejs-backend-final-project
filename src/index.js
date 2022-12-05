@@ -10,7 +10,7 @@ import userRouter from './routes/user.js';
 import meRouter from './routes/me.js';
 // import bookGenreRouter from './routes/bookgenre.js';
 
-// dotenv.config();
+dotenv.config();
 
 const app = express();
 const prisma = new PrismaClient();
