@@ -1,0 +1,78 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                      Int                           @id @default(autoincrement())
+  createdAt               DateTime                      @default(now())
+  updatedAt               DateTime                      @updatedAt 
+
+  firstName               String
+  lastName                String
+  userName                String                        @unique
+  email                   String                        @unique
+  password                String
+  birthday                String
+  bio                     String?
+  tweets                  Tweet[]                       @relation("userTweet")
+  replies                 Reply[]                       @relation("userReply") 
+  favorites               Favorite[]                    @relation("userfavorites")
+  following               Follow[]                      @relation("userFollowing")
+  followers               Follow[]                      @relation("userFollowers")
+}
+
+model Tweet {
+  id                      Int                           @id @default(autoincrement())
+  createdAt               DateTime                      @default(now())
+  updatedAt               DateTime                      @updatedAt
+
+  content                 String
+  userId                  Int
+  user                    User                          @relation("userTweet", fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  replies                 Reply[]                       @relation("tweetReply")
+  favorites               Favorite[]                    @relation("tweetfavorites")
+}
+
+model Reply {
+  id                      Int                           @id @default(autoincrement())
+  createdAt               DateTime                      @default(now())
+  updatedAt               DateTime                      @updatedAt
+
+  tweetId                 Int
+  tweet                   Tweet                         @relation("tweetReply", fields: [tweetId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  userId                  Int
+  user                    User                          @relation("userReply", fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  content                 String
+}
+
+model Favorite {
+  createdAt               DateTime                      @default(now())
+  updatedAt               DateTime                      @updatedAt
+
+  tweetId                 Int
+  tweet                   Tweet                         @relation("tweetfavorites", fields: [tweetId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  userId                  Int
+  user                    User                          @relation("userfavorites", fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  
+  @@id([tweetId, userId])
+}
+
+model Follow {
+  createdAt               DateTime                      @default(now())
+  updatedAt               DateTime                      @updatedAt
+
+  followingId             Int
+  following               User                          @relation("userFollowing", fields: [followingId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  followerId              Int
+  follower                User                          @relation("userFollowers", fields: [followerId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  
+  @@id([followingId, followerId])
+}
