@@ -428,7 +428,7 @@ userRouter.post("/users/:userId/follow", requiresAuth, async (request, response)
 });
 
 // unfollow a user
-userRouter.delete("/users/:userId/unfollow", requiresAuth, async (request, response) => {
+userRouter.delete("/users/:userId/follow", requiresAuth, async (request, response) => {
 
     // get user id from parameter
     const followingUserId = request.params.userId;

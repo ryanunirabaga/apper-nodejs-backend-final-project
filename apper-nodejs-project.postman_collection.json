@@ -19,7 +19,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n        \"firstName\": \"User19\",\r\n        \"lastName\": \"User19\",\r\n        \"userName\": \"User19\",\r\n        \"email\": \"User19@email.com\",\r\n        \"password\": \"password\",\r\n        \"birthday\": \"1-25-1990\",\r\n        \"bio\": \"User19 bio\"\r\n}",
+					"raw": "{\r\n        \"firstName\": \"User21\",\r\n        \"lastName\": \"User21\",\r\n        \"userName\": \"User21\",\r\n        \"email\": \"User21@email.com\",\r\n        \"password\": \"password\",\r\n        \"birthday\": \"1-25-1990\",\r\n        \"bio\": \"User21 bio\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -523,7 +523,7 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/tweets/6/add-to-favorites",
+					"raw": "http://localhost:3000/tweets/6/favorites",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -532,7 +532,7 @@
 					"path": [
 						"tweets",
 						"6",
-						"add-to-favorites"
+						"favorites"
 					]
 				}
 			},
@@ -585,7 +585,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/tweets/6/remove-from-favorites",
+					"raw": "http://localhost:3000/tweets/6/favorites",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -594,7 +594,7 @@
 					"path": [
 						"tweets",
 						"6",
-						"remove-from-favorites"
+						"favorites"
 					]
 				}
 			},
@@ -606,7 +606,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/users/57/unfollow",
+					"raw": "http://localhost:3000/users/57/follow",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -615,7 +615,7 @@
 					"path": [
 						"users",
 						"57",
-						"unfollow"
+						"follow"
 					]
 				}
 			},

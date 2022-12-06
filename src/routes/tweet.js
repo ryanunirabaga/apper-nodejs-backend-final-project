@@ -167,7 +167,7 @@ tweetRouter.delete("/tweets/:tweetId", requiresAuth, async (request, response) =
 });
 
 // favorite a tweet
-tweetRouter.post("/tweets/:tweetId/add-to-favorites", requiresAuth, async (request, response) => {
+tweetRouter.post("/tweets/:tweetId/favorites", requiresAuth, async (request, response) => {
 
     // get tweetId from parameter
     const tweetId = request.params.tweetId;
@@ -239,7 +239,7 @@ tweetRouter.post("/tweets/:tweetId/add-to-favorites", requiresAuth, async (reque
 });
 
 // unfavorite a tweet
-tweetRouter.delete("/tweets/:tweetId/remove-from-favorites", requiresAuth, async (request, response) => {
+tweetRouter.delete("/tweets/:tweetId/favorites", requiresAuth, async (request, response) => {
 
     // get tweetId from parameter
     const tweetId = request.params.tweetId;
